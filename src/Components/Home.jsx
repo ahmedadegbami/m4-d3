@@ -1,4 +1,3 @@
-import { Component } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import books from "../Data/romance.json";
 
@@ -11,8 +10,16 @@ const Home = () => {
             <Card key={book.asin}>
               <Card.Img variant="top" src={book.img} style={{ height: 300 }} />
               <Card.Body>
-                <Card.Text>{book.title}</Card.Text>
-                <Card.Title>{book.category}</Card.Title>
+                <Card.Text
+                  style={{
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {book.title}
+                </Card.Text>
+
                 <Button variant="primary">{book.price} €</Button>
               </Card.Body>
             </Card>
